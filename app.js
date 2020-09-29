@@ -18,9 +18,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const config = {
-  user: 'blendmehani',
-  password: 'BM@261195',
-  server: 'blendmehani.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
+  user: '*******',
+  password: '******',
+  server: '*******', // You can use 'localhost\\instance' to connect to named instance
   database: 'Ecommerce',
   
 
