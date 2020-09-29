@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+		 <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="MDBiZTJjY2MtYWIyYi00NGUyLWFhMDMtMGIwOTU2ODY2MDkwNjM2ODg5MjU4Mzk1MDQyMDI4" id="snipcart" data-autopop="false" ></script>
+			 
+		 <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css" />	
+
+		<title><%=title%></title>
+
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+ 		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="/css/slick.css"/>
+ 		<link type="text/css" rel="stylesheet" href="/css/slick-theme.css"/>
+
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="/css/nouislider.min.css"/>
+
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +383 49 877 188</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> blendd_mehani@live.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Prishtine</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a ><i class="fa fa-dollar"></i> EUR</a></li>
+						<li><a href="#" class = "snipcart-user-profile"><i class="fa fa-user-o"></i>
+						<span class="snipcart-user-email" > My Account</span>
+						<a href="#" class="snipcart-edit-profile">&nbsp&nbsp&nbsp&nbsp&nbspEdit Profile</a> 
+						<a href="#" class="snipcart-user-logout">&nbsp&nbsp&nbsp&nbsp&nbspLogout</a></a></li>						
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+									<img src="./img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form method="POST" action="./search" id ="myform">
+									<select class="input-select" name = 'formhere'>
+										<option value="1">Laptops</option>
+										<option value="2">Smartphones</option>
+										<option value="3">Cameras</option>
+										<option value="4">Accessories</option>
+									</select>
+									<input class="input" placeholder="Search here" name="searchhere">
+									<button class="search-btn">Search</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="snipcart-checkout" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Your Cart</span>
+										<div class="qty"><div class="snipcart-summary"><span class="snipcart-total-items"></span></div></div>
+									</a></div>
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<!-- <div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div> -->
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">						
+						<li ><a href="<%=nav[0].link %>"><%=nav[0].title%></a></li>						
+						<li <% if (page_name === '') { %>class="active" <%}%>><a href="<%=nav[1].link %>"><%=nav[1].title%></a></li>
+						<li <% if (page_name === 'laptops') { %>class="active" <%}%>><a href="<%=nav[2].link %>"><%=nav[2].title%></a></li>
+						<li <% if (page_name === 'smartphones') { %>class="active" <%}%>><a href="<%=nav[3].link %>"><%=nav[3].title%></a></li>
+						<li <% if (page_name === 'cameras') { %>class="active" <%}%>><a href="<%=nav[4].link %>"><%=nav[4].title%></a></li>
+						<li <% if (page_name === 'accessories') { %>class="active" <%}%>><a href="<%=nav[5].link %>"><%=nav[5].title%></a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="/">Home</a></li>
+							<%if(page_name == 'all_categories'){%>
+								<li><a href="#">All Categories</a></li> <%} else {%>
+							
+							<li><a href="<%=page_name%>"><%=page_name%></a></li>	<%}%>
+
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- ASIDE -->
+					<div id="aside" class="col-md-3">
+						<!-- aside Widget -->
+						<div class="aside">
+							<h3 class="aside-title">Sub Categories</h3>
+							<div class="checkbox-filter">							
+								<%for(let i=0; i<subcategory.length; i++){%>	
+								<div class="input-checkbox">
+									
+									<p class="fa-li fa fa-check-square"></p>
+									<label for="category-<%=i+1%>">
+										<span></span>
+										<%=subcategory[i].Subcategory%>
+										<% var count=0%>
+										<%for(let j=0;j<products.length;j++){%>
+										<%if(products[j].Subcategory==subcategory[i].Subcategory)
+											count++%>
+										<%}%>
+										<small><%=count%></small>
+									</label>
+								</div>
+							<%}%>
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						
+						<!-- aside Widget -->
+
+						<div class="aside">
+							<h3 class="aside-title">Top products</h3>
+							<%for(let i=0;i<ratings.length; i++){%>
+								<% var page = null
+								if(ratings[i].PCID == 1) {
+									page = 'laptops'}
+								if(ratings[i].PCID == 2) {
+									page = 'smartphones'}
+								if(ratings[i].PCID == 3) {
+									page = 'cameras'}
+								if(ratings[i].PCID == 4) {
+									page = 'accessories'} %>							
+							<div class="product-widget">
+								<div class="product-img">
+									<img src="./img/products/<%=ratings[i].Image1%>" alt="">
+								</div>
+								<div class="product-body">
+									<p class="product-category"><%=ratings[i].Category%></p>
+									<h3 class="product-name"><a href="/<%=page%>/<%=ratings[i].PId%>"><%=ratings[i].Name%></a></h3>
+									<h4 class="product-price"><%=ratings[i].Price%> € 
+										<% if(ratings[i].OldPrice != null ){%>	<del class="product-old-price"><%=ratings[i].OldPrice%> €</del> <%}%>
+									</h4>
+								</div>
+							</div>
+							<%}%>
+					
+						</div>
+						<!-- /aside Widget -->
+					</div>
+					<!-- /ASIDE -->
+
+					<!-- STORE -->
+					<div id="store" class="col-md-9">
+						<!-- store top filter -->
+						<div class="store-filter clearfix">
+							<div class="store-sort">
+
+
+								<label>									
+									<b>Choose From Sub Categories:&nbsp;&nbsp;</b>
+									<select class="input-select" name="showprod" onchange="showDiv(this)">
+										<%for(let i=0; i<subcategory.length; i++){%>
+										<option value="<%=i%>"><%=subcategory[i].Subcategory%></option>
+										<%}%>
+										<option value="<%=subcategory.length%>" selected="selected">All</option>
+									</select>									
+								</label>								
+								<script type="text/javascript">
+									
+									function showDiv(select){
+									   if(select.value==0){
+										document.getElementById('show1').style.display = "block";
+										document.getElementById('show2').style.display = "none";
+										document.getElementById('show3').style.display = "none";										
+									   } else if(select.value==1){
+										document.getElementById('show1').style.display = "none";
+										document.getElementById('show2').style.display = "block";
+										document.getElementById('show3').style.display = "none";
+									   }else {
+										document.getElementById('show1').style.display = "none";
+										document.getElementById('show2').style.display = "none";
+										document.getElementById('show3').style.display = "block";
+									   }
+									} 
+									</script>
+
+								</script>
+
+							</div>
+							<ul class="store-grid">
+								<li class="active"><i class="fa fa-th"></i></li>							
+							</ul>
+						</div>
+						<!-- /store top filter -->
+
+						<!-- store products -->
+						<div class="row" id="show1" style="display:none;">
+							<!-- product -->
+							<%for(let i=0; i<products.length; i++){%>
+							<%if(products[i].Subcategory==subcategory[0].Subcategory){%>
+									<div class="col-md-4 col-xs-6">
+											<div class="product">
+												<div class="product-img">
+													<img src="./img/products/<%=products[i].Image1%>" alt="<%=products[i].Name%>">
+													<div class="product-label">
+															<% if(products[i].OldPrice != null ){%>
+														<span class="sale"><% var price =(products[i].OldPrice-products[i].Price)*100/products[i].OldPrice
+														%><%=price.toFixed(0)%>% OFF</span>
+														<%}%>
+														<% 	var date = new Date();
+															var d = new Date(date.getFullYear(),date.getMonth(),date.getDay());
+														 	if(products[i].DateInserted >= ( d.setDate(d.getDate()-14)) && products[i].DateInserted != null ){%>
+														<span class="new">New</span> <%}%>
+													</div>
+												</div>
+												<div class="product-body">
+													<p class="product-category"><%=products[i].Category%></p>
+													<h3 class="product-name"><a href="/<%=page_name%>/<%=products[i].PId%>"><%=products[i].Name%></a></h3>
+													<h4 class="product-price"><%=products[i].Price%> €
+													<% if(products[i].OldPrice != null ){%>	<del class="product-old-price"><%=products[i].OldPrice%> €</del> <%}%>
+													</h4>
+													<%if(products[i].Rating == 0){%>
+														<div class="product-rating">
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 1){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 2){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 3){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 4){%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else {%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+														</div>
+														<%}%>
+														<div class="product-btns">
+															<button class="add-to-wishlist"><i class="fa fa-spinner"></i><span class="tooltipp">Color: <%=products[i].Color%></span></button>
+															<button class="add-to-compare"><i class="fa fa-book"></i><span class="tooltipp">Size: <%=products[i].Size%> inches</span></button>
+															<button class="quick-view"><i class="fa fa-spinner"></i><span class="tooltipp">Weight: <%=products[i].Weight%> kg</span></button>
+														</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn snipcart-add-item"
+													data-item-id="<%=products[i].PId%>"
+													data-item-name="<%=products[i].Name%>"
+													data-item-price="<%=products[i].Price%>"
+													data-item-weight="<%=products[i].Weight%>"
+													data-item-url="/"
+													data-item-description="<%=products[i].Description%>"
+													data-item-image="./img/<%=products[i].Image1%>"
+
+													data-item-custom3-name="Gift"
+													data-item-custom3-options="true|false">
+													<i class="fa fa-shopping-cart"></i> add to cart</button>
+												</div>
+											</div>
+										</div>
+							<!-- /product -->
+							<%}%>
+							<%}%>
+						</div>
+						<!-- /store products -->
+						<!-- store products -->
+						<div class="row" id="show2" style="display:none;">
+							<!-- product -->
+							<%for(let i=0; i<products.length; i++){%>
+							<%if( products[i].Subcategory==subcategory[1].Subcategory){%>
+									<div class="col-md-4 col-xs-6">
+											<div class="product">
+												<div class="product-img">
+													<img src="./img/products/<%=products[i].Image1%>" alt="<%=products[i].Name%>">
+													<div class="product-label">
+															<% if(products[i].OldPrice != null ){%>
+														<span class="sale"><% var price =(products[i].OldPrice-products[i].Price)*100/products[i].OldPrice
+														%><%=price.toFixed(0)%>% OFF</span>
+														<%}%>
+														<% 	var date = new Date();
+															var d = new Date(date.getFullYear(),date.getMonth(),date.getDay());
+														 	if(products[i].DateInserted >= ( d.setDate(d.getDate()-14)) && products[i].DateInserted != null ){%>
+														<span class="new">New</span> <%}%>
+													</div>
+												</div>
+												<div class="product-body">
+													<p class="product-category"><%=products[i].Category%></p>
+													<h3 class="product-name"><a href="/<%=page_name%>/<%=products[i].PId%>"><%=products[i].Name%></a></h3>
+													<h4 class="product-price"><%=products[i].Price%> €
+													<% if(products[i].OldPrice != null ){%>	<del class="product-old-price"><%=products[i].OldPrice%> €</del> <%}%>
+													</h4>
+													<%if(products[i].Rating == 0){%>
+														<div class="product-rating">
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 1){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 2){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 3){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 4){%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else {%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+														</div>
+														<%}%>
+														<div class="product-btns">
+															<button class="add-to-wishlist"><i class="fa fa-spinner"></i><span class="tooltipp">Color: <%=products[i].Color%></span></button>
+															<button class="add-to-compare"><i class="fa fa-book"></i><span class="tooltipp">Size: <%=products[i].Size%> inches</span></button>
+															<button class="quick-view"><i class="fa fa-spinner"></i><span class="tooltipp">Weight: <%=products[i].Weight%> kg</span></button>
+														</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn snipcart-add-item"
+													data-item-id="<%=products[i].PId%>"
+													data-item-name="<%=products[i].Name%>"
+													data-item-price="<%=products[i].Price%>"
+													data-item-weight="<%=products[i].Weight%>"
+													data-item-url="/"
+													data-item-description="<%=products[i].Description%>"
+													data-item-image="./img/<%=products[i].Image1%>"
+
+													data-item-custom3-name="Gift"
+													data-item-custom3-options="true|false">
+													<i class="fa fa-shopping-cart"></i> add to cart</button>
+												</div>
+											</div>
+										</div>
+							<!-- /product -->
+							<%}%>
+							<%}%>
+						</div>
+						<!-- /store products -->	
+						
+						<div class="row" id="show3">
+							<!-- product -->
+							<%for(let i=0; i<products.length; i++){%>
+									<div class="col-md-4 col-xs-6">
+											<div class="product">
+												<div class="product-img">
+													<img src="./img/products/<%=products[i].Image1%>" alt="<%=products[i].Name%>">
+													<div class="product-label">
+															<% if(products[i].OldPrice != null ){%>
+														<span class="sale"><% var price =(products[i].OldPrice-products[i].Price)*100/products[i].OldPrice
+														%><%=price.toFixed(0)%>% OFF</span>
+														<%}%>
+														<% 	var date = new Date();
+															var d = new Date(date.getFullYear(),date.getMonth(),date.getDay());
+														 	if(products[i].DateInserted >= ( d.setDate(d.getDate()-14)) && products[i].DateInserted != null ){%>
+														<span class="new">New</span> <%}%>
+													</div>
+												</div>
+												<div class="product-body">
+													<p class="product-category"><%=products[i].Category%></p>
+													<h3 class="product-name"><a href="/<%=page_name%>/<%=products[i].PId%>"><%=products[i].Name%></a></h3>
+													<h4 class="product-price"><%=products[i].Price%> €
+													<% if(products[i].OldPrice != null ){%>	<del class="product-old-price"><%=products[i].OldPrice%> €</del> <%}%>
+													</h4>
+													<%if(products[i].Rating == 0){%>
+														<div class="product-rating">
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 1){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 2){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 3){%>
+														<div class="product-rating">	
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else if(products[i].Rating == 4){%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o"></i>
+														</div>
+														<%}else {%>
+														<div class="product-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+														</div>
+														<%}%>
+														<div class="product-btns">
+															<button class="add-to-wishlist"><i class="fa fa-spinner"></i><span class="tooltipp">Color: <%=products[i].Color%></span></button>
+															<button class="add-to-compare"><i class="fa fa-book"></i><span class="tooltipp">Size: <%=products[i].Size%> inches</span></button>
+															<button class="quick-view"><i class="fa fa-spinner"></i><span class="tooltipp">Weight: <%=products[i].Weight%> kg</span></button>
+														</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn snipcart-add-item"
+													data-item-id="<%=products[i].PId%>"
+													data-item-name="<%=products[i].Name%>"
+													data-item-price="<%=products[i].Price%>"
+													data-item-weight="<%=products[i].Weight%>"
+													data-item-url="/"
+													data-item-description="<%=products[i].Description%>"
+													data-item-image="./img/<%=products[i].Image1%>"
+
+													data-item-custom3-name="Gift"
+													data-item-custom3-options="true|false">
+													<i class="fa fa-shopping-cart"></i> add to cart</button>
+												</div>
+											</div>
+										</div>
+							<!-- /product -->
+							<%}%>
+						</div>
+						<!-- /store products -->					
+
+
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		
+
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>We are BWTech, we sell the best technology.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>Prishtine</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+383 49 877 188</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>blendd_mehani@live.com</a></li>
+								</ul>
+							</div>
+						</div>
+											
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a ><i class="fa fa-cc-visa"></i></a></li>
+								<li><a ><i class="fa fa-credit-card"></i></a></li>
+								<li><a ><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a ><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a ><i class="fa fa-cc-discover"></i></a></li>
+								<li><a ><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/slick.min.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/jquery.zoom.min.js"></script>
+		<script src="js/main.js"></script>
+
+
+		
+	</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <a id="photo"><img src="/img/logo.png" alt="Girl in a jacket"> </a>
+<div id="div1"> 
+   <!-- <a id="photo"><img src="/img/logo.png" alt="Girl in a jacket"> </a> -->
+    <h3 style="text-align: right;"><a id="logout" href="/logout">Sign Out</a> </h3>
+    <a>&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+</div>
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+ <link rel="stylesheet" 
+ href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+ <link type="text/css" rel="stylesheet" href="./css/apicss.css"/>
+ <style>
+#logout:link, #logout:visited {
+    background-color: whitesmoke;
+    color: rgb(24, 30, 38);
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 3%;
+
+
+  }
+#logout{
+  margin-top: 2%;
+}  
+#photo{
+  position: absolute;
+}
+
+#insert{
+  float: left;
+  background-color: whitesmoke;
+  width: 30%;
+  position: absolute;
+}
+#form1{
+  text-align: center;
+
+}
+.photo{
+  margin-left: 12%;
+}
+#mySelect{
+  width: 30%;
+  height: 20px;
+}
+
+#mySelectLap,
+#mySelectSphone,
+#mySelectCam,
+#mySelectAcces{
+  width: 30%;
+  height: 2.3%;
+  position: absolute;
+  top: 85%;
+  left: 35%;
+  
+}
+.buttons{
+    background-color: rgb(24, 30, 38);
+    color: whitesmoke;
+    float: left;
+}
+#btndelete{
+    margin-top: -4%;
+    margin-left: 81.1%;
+}
+.btn{
+  background-color: rgb(24, 30, 38);
+  color: white;
+}
+#photo{
+  padding: 3%;
+  display: inline-block;
+  margin-top: -3.5%;
+  margin-bottom: -5%;
+}
+
+ .selecting{
+     margin-top: 35.5%;
+     width: 100%;
+ }
+ #mySelectLap{
+     height: 1%;
+ }
+ #mySelectCam{
+     height: 1%;
+ }
+ #mySelectSphone{
+     height: 1%;
+ }
+ #mySelectAcces{
+     height: 1%;
+ }
+ .descriptions{
+     height:150%;
+ }
+ textarea{
+     resize: none;
+     
+ }
+ .form-control{
+     width: 95%;
+     margin: 2%;
+ }
+ .btn{
+     margin-top:-23%;
+ }
+ #div1{
+ background-color:rgb(24, 30, 38);   
+}
+#fetchedProducts{
+    
+    position: absolute;
+    margin-left: 150%;
+    margin-top: -460%;
+    width: 150%;
+    height: 120%;
+        
+}
+#fetchedProduct{
+    border-style:solid;
+    
+}
+#prodName{
+    font-size: 130%;
+    font-weight: bolder;
+}
+#edit{
+    float:right;
+    margin-right: 10%;
+}
+
+   </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="insert">
+        <h2 style="text-align: center;">Insert a new Product</h2>
+        <form id ="form1" method="POST" action="/insert" enctype="multipart/form-data">
+            <label>Name</label>
+            <input class="form-control" type="text" placeholder="Name" name="name" required>
+            <br>
+            <br>
+            <label>Price</label>
+            <input class="form-control" type="number" step="any" min="0.1" placeholder="Price" name="price" required>
+            <br>
+            <br>
+            <label>Description</label>
+            <!--<input class="form-control descriptions" type="text" placeholder="Description" name="description"> -->
+            <textarea rows="7" class="form-control descriptions" form="form1" name="description" placeholder="Description" required></textarea>
+            <br>
+            <br>
+            <label>Specs</label>
+            <textarea rows="7" class="form-control descriptions" form="form1" name="specs" placeholder="Specs"></textarea>
+            <br>
+            <br>
+            <label>Color</label>
+            <input class="form-control" type="text" placeholder="Color" name="color" required>
+            <br>
+            <br>
+            <label>Size</label>
+            <input class="form-control" type="text" placeholder="Size" name="size" required> 
+            <br>
+            <br>
+            <label>Weight</label>
+            <input class="form-control" type="number" step="any" min="0.1" placeholder="Weight" name="weight" required>
+            <br>
+            <br>
+            <label>Main Image</label>
+            <br>
+            <br>
+            <input class="form-control" class="photo" type="file" placeholder="Photo 1" name="photo1" required>
+            <br>
+            <br>
+            <label>Image 2</label>
+            <br>
+            <br>
+            <input class="form-control" class="photo" type="file" placeholder="Photo 2" name="photo2">
+            <br>
+            <br>
+            <label>Image 3</label>
+            <br>
+            <br>
+            <input class="form-control" class="photo" type="file" placeholder="Photo 3" name="photo3">
+            <br>
+            <br>
+            <label>Image 4</label>
+            <br>
+            <br>
+            <input class="form-control" class="photo" type="file" placeholder="Photo 4" name="photo4">
+            <br>
+            <br>
+            <label>Image 5</label>
+            <br>
+            <br>
+            <input class="form-control" class="photo" type="file" placeholder="Photo 5" name="photo5">
+            <br>
+            <br>
+            <label>Category</label>
+            <br>
+            <br>
+            <select  id="mySelect" name="category" required>
+                    <option value = "0"></option>
+                    <option value="1">Laptop</option>
+                    <option value="2">Smartphone</option>
+                    <option value="3">Camera</option>
+                    <option value="4">Accessory</option>
+            </select>
+            <br>
+            <br>
+            <label>Sub Category</label>
+            <select  class="selecting" id="mySelectLap" name="subcategory1" hidden>
+                <option value="1">Lenovo</option>
+                <option value="2">Asus</option>
+            </select>
+            <br>
+            <br>
+           
+            <select  class="selecting" id="mySelectSphone" name="subcategory2" hidden>
+               <option value="3">Samsung</option>
+               <option value="4">Iphone</option>
+            </select>
+            <br>
+            <br>
+            <select  class="selecting" id="mySelectCam" name="subcategory3" hidden>
+                <option value="5">Canon</option>
+                <option value="6">Nikon</option>
+            </select>
+            <br>
+            <br>
+            <select  class="selecting" id="mySelectAcces" name="subcategory4" hidden>
+                <option value="7">Mouse</option>
+                <option value="8">Headphone</option>
+            </select>
+        
+            <br>
+            <br>
+
+            <input type="submit" class="btn btn-succcess btn-lg" value="Insert"></button>
+        </form>
+        
+        <div id="fetchedProducts">
+            <h1>Products</h1>
+            <%for(let i=0;i<products.length;i++) {%> 
+            <div id="fetchedProduct"> <br>
+            Product ID: <%=products[i].PId%><br><br>    
+            Name:<p id="prodName"><%=products[i].Name%></p>
+            <form method="POST" action="/edit" enctype="multipart/form-data">
+                <input value="<%=products[i].PId%>" name="PId" hidden>
+            Price:<input class="prices" placeholder="<%=products[i].Price%> €" name="price" required> 
+            <%if(products[i].OldPrice ==null){%>
+             OldPrice:<input id="oldprice" class="prices" placeholder="It is not set" name="oldprice" required> 
+            <%}else{%>
+             OldPrice:<input id="oldprice" class="prices" placeholder="<%=products[i].OldPrice%> €" name="oldprice" required>  
+            <%}%>
+            <input class="buttons" id="edit" type="submit" value="Update">
+            </form>
+            <br>
+            <br>
+            <form method="POST" action="/delete" enctype="multipart/form-data">
+                <input hidden name="PId" value="<%=products[i].PId%>"  >
+                <input id="btndelete" class="buttons" type="submit" value="Delete ">
+            </form>
+
+            </div>
+            <%}%>
+        </div>
+        <script>
+        $('#mySelect').on('change', function() {
+             var value = $(this).val();
+             if(value == 0){
+                $('#mySelectLap').hide();
+                $('#mySelectSphone').hide();
+                $('#mySelectCam').hide();
+                $('#mySelectAcces').hide();   
+             }
+             if(value == 1){
+                $('#mySelectLap').show();
+                $('#mySelectSphone').hide();
+                $('#mySelectCam').hide();
+                $('#mySelectAcces').hide();
+             }
+             if(value == 2){
+                $('#mySelectLap').hide();
+                $('#mySelectSphone').show();
+                $('#mySelectCam').hide();
+                $('#mySelectAcces').hide();
+             }
+             if(value == 3){
+                $('#mySelectLap').hide();
+                $('#mySelectSphone').hide();
+                $('#mySelectCam').show();
+                $('#mySelectAcces').hide();
+             }
+             if(value == 4){
+                $('#mySelectLap').hide();
+                $('#mySelectSphone').hide();
+                $('#mySelectCam').hide();
+                $('#mySelectAcces').show();
+             }
+        });
+        </script>
+
+        <br>
+        
+
+    </div>
+</body>
+
+
+</html>
